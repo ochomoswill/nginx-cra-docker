@@ -1,0 +1,15 @@
+version: '3.8'
+services:
+  nginx-cra-docker:
+    container_name: nginx-cra-docker
+    build:
+      context: ./
+      cache_from:
+        - nginx:alpine
+      dockerfile: ./Dockerfile
+    image: nginx-cra-docker
+    ports:
+      - '9034:80'
+    restart: on-failure
+
+
