@@ -4,8 +4,12 @@ FROM node:lts-gallium AS builder
 WORKDIR /app
 # Copy all files from current directory to working dir in image
 COPY . .
+# Get build argument and set environment variable
+ARG BASENAME
+ENV REACT_APP_BASENAME=$BASENAME
 # install node modules and build assets
 RUN yarn install && yarn build
+
 
 
 # nginx state for serving content

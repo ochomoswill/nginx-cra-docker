@@ -7,6 +7,8 @@ services:
       cache_from:
         - nginx:alpine
       dockerfile: ./Dockerfile
+      args:
+        - BASENAME=/accounts
     image: nginx-cra-docker
     ports:
       - '9034:80'
